@@ -6,9 +6,9 @@ import { SearchRes } from './search-res.entity';
 export class SearchResController {
   constructor(private service: SearchResService) {}
 
-  @Get()
-  getAll() {
-    return this.service.getAllSearchRes();
+  @Get(':jobTitle/:country/:location')
+  getAll(@Param() params) {
+    return this.service.getAllSearchRes(params.jobTitle, params.location, params.country);
   }
 
   @Get(':id')

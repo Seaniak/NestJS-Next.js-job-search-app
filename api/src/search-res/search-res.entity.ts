@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, Timestamp } from 'typeorm';
 
 @Entity()
 export class SearchRes {
@@ -12,6 +12,7 @@ export class SearchRes {
     @Column({ length: 25 })
     location: string;
 
-    @Column('date') 
-    created: Date;
+    @Column('timestamp') 
+    created: Timestamp;
+
 }
