@@ -7,8 +7,11 @@ export class SearchRes {
     id: number;
 
     @Column({ length: 25 })
-    query:string;
+    query: string;
+
+    @Column({ length: 25 })
+    location: string;
 
     @Column('date') 
-    created:Date;
+    created: Date;
 }

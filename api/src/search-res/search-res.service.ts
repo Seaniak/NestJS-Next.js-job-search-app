@@ -5,28 +5,30 @@ import { SearchRes } from './search-res.entity';
 
 @Injectable()
 export class SearchResService {
-  constructor(@InjectRepository(SearchRes) private SearchResRepository: Repository<SearchRes>) { }
+  constructor(
+      @InjectRepository(SearchRes) private searchResRepository: Repository<SearchRes>,
+      ) { }
 
     async getAllSearchRes(): Promise<SearchRes[]> {
-        return await this.SearchResRepository.find();
+        return await this.searchResRepository.find();
     }
 
     async getSearchRes(_id: number): Promise<SearchRes[]> {
-        return await this.SearchResRepository.find({
+        return await this.searchResRepository.find({
             select: ["query", "created"],
             where: [{ "id": _id }]
         });
     }
 
-    async createSearchRes(SearchResEntity: SearchRes) {
-      this.SearchResRepository.insert(SearchResEntity);
+    async createSearchRes(searchRes: SearchRes) {
+      await this.searchResRepository.insert(searchRes);
     }
 
-    async updateSearchRes(SearchResEntity: SearchRes) {
-        this.SearchResRepository.save(SearchResEntity);
+    async updateSearchRes(searchRes: SearchRes) {
+        await this.searchResRepository.save(searchRes);
     }
 
-    async deleteSearchRes(SearchResEntity: SearchRes) {
-        this.SearchResRepository.delete(SearchResEntity);
+    async deleteSearchRes(searchRes: SearchRes) {
+       await this.searchResRepository.delete(searchRes);
     }
 }
