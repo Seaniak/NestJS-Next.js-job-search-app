@@ -5,7 +5,7 @@ WORKDIR /usr/app
 
 # Copy "package.json" and "package-lock.json" before other files
 # Utilise Docker cache to save re-installing dependencies if unchanged
-COPY ./frontend/package*.json ./
+#COPY ./frontend/package*.json ./
 COPY ./express-api/package*.json ./
 #COPY ./api/package*.json ./
 
@@ -13,14 +13,14 @@ COPY ./express-api/package*.json ./
 RUN npm install 
 
 # Copy all files
-COPY ./frontend ./
+#COPY ./frontend ./
 COPY ./express-api ./
 #COPY ./api/src ./
 
+EXPOSE 3000 3003 3306
 
 # Build app
-#RUN npm run dev
-#RUN npm run start
+RUN npm run dev
 
 # Run container as non-root (unprivileged) user
 # The "node" user is provided in the Node.js Alpine base image
@@ -29,6 +29,5 @@ COPY ./express-api ./
 # Launch app with PM2
 #CMD [ "dev", "start", "npm", "--", "start" ]
 
-EXPOSE 3000 3003 3306
 
-CMD ["npm", "run dev"]
+#CMD ["npm", "run dev"]
