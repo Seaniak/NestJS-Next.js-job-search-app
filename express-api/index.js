@@ -1,5 +1,5 @@
 const express = require('express');
-global.userData = require('./Users-mockdata');
+global.users = require('./Users-mockdata');
 const path = require('path');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const Api = require('./routes/api/api');
 new Api(app);
 
-app.use('/api/users', require('./routes/api/api'));
+// app.use('/api/users', require('./routes/api/api'));
 
 const PORT = process.env.PORT || 3003;
 

@@ -1,7 +1,7 @@
 FROM node:alpine
 
 # Set working directory
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
 # Copy "package.json" and "package-lock.json" before other files
 # Utilise Docker cache to save re-installing dependencies if unchanged
@@ -20,7 +20,7 @@ COPY ./express-api ./
 EXPOSE 3000 3003 3306
 
 # Build app
-RUN npm run dev
+#RUN npm run dev
 
 # Run container as non-root (unprivileged) user
 # The "node" user is provided in the Node.js Alpine base image
