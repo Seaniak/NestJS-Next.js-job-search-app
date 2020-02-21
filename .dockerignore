@@ -1,0 +1,17 @@
+node_modules
+dist
+scripts
+docker*
+buildtask-production.yaml
+Docker*
+Makefile
+readme.md
+.env*
+.env
+.github
+.next
+.git
+**/dist
+**/lib
+**/node_modules
+**/.next
