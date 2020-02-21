@@ -18,7 +18,7 @@ module.exports = class Api {
       }
     });
 
-    this.app.get('/users', (req, res) => res.json(users));
+    this.app.get('/', (req, res) => res.json(users));
   }
 
   post() {
