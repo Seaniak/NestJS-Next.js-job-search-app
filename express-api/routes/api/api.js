@@ -17,6 +17,8 @@ module.exports = class Api {
         res.status(400).json({ msg: `No users with the id of ${req.params.id}` });
       }
     });
+
+    this.app.get('/users', (req, res) => res.json(users));
   }
 
   post() {

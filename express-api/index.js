@@ -11,8 +11,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 const Api = require('./routes/api/api');
 new Api(app);
 
-// app.use('/api/users', require('./routes/api/api'));
-
 const PORT = process.env.PORT || 3003;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

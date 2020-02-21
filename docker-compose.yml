@@ -32,6 +32,8 @@ services:
     container_name: api
     restart: always
     build: ./
+    volumes:
+      - ./routes/api
     command: npm run dev
     #working_dir: /express-api
     ports:
