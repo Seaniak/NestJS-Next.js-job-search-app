@@ -1,25 +1,17 @@
 const express = require('express');
+global.userData = require('./Users-mockdata');
 const path = require('path');
-const users = require('./entities/Users-mockdata');
 
 const app = express();
 
-// Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.get('/', (req, res) =>
-  res.render('index', {
-    title: 'Users',
-    users
-  })
-);
-
-// Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Members API Routes
-app.use('/api/users', require('./routes/api/users'));
+const Api = require('./routes/api/api');
+new Api(app);
+
+app.use('/api/users', require('./routes/api/api'));
 
 const PORT = process.env.PORT || 3003;
 

@@ -31,7 +31,7 @@ services:
   express:
     container_name: api
     restart: always
-    build: ./express-api
+    build: .
     command: npm run dev
     #working_dir: /express-api
     ports:
